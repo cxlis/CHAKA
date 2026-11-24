@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAKA | Tu estilo, tus reglas</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- LOGIN Y REGISTRO -->
+    <section id="auth">
+        <header class="logo">
+            <h1>CHAKA</h1>
+            <p>Tu estilo, tus reglas.</p>
+        </header>
+
+        <div class="auth-container">
+
+            <div class="auth-box" id="loginBox">
+                <h2>Iniciar sesión</h2>
+
+                <input type="email" id="loginCorreo" placeholder="Correo electrónico">
+                <input type="password" id="loginPassword" placeholder="Contraseña">
+
+                <button onclick="iniciarSesion()">Entrar</button>
+
+                <p>¿No tienes cuenta?
+                    <span onclick="mostrarRegistro()">Crear cuenta</span>
+                </p>
+            </div>
+
+            <div class="auth-box hidden" id="registerBox">
+                <h2>Crear cuenta</h2>
+
+                <input type="text" id="registroNombre" placeholder="Nombre completo">
+                <input type="email" id="registroCorreo" placeholder="Correo electrónico">
+                <input type="password" id="registroPassword" placeholder="Contraseña">
+
+                <button onclick="registrarse()">Registrarme</button>
+
+                <p>¿Ya tienes cuenta?
+                    <span onclick="mostrarLogin()">Iniciar sesión</span>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TIENDA -->
+    <section id="tienda" class="hidden">
+
+        <nav class="navbar">
+            <h1 onclick="irInicio()">CHAKA</h1>
+
+            <div class="nav-links">
+                <button onclick="irInicio()">Inicio</button>
+                <button onclick="mostrarCatalogo()">Catálogo</button>
+                <button onclick="mostrarCarrito()">Carrito</button>
+                <button onclick="cerrarSesion()">Salir</button>
+            </div>
+        </nav>
+
+        <!-- INICIO -->
+        <section id="inicio" class="pagina">
+
+            <div class="banner">
+                <h1>CHAKA</h1>
+                <h2>Tu estilo, tus reglas.</h2>
+                <p>Encuentra prendas que representen tu personalidad.</p>
+                <button onclick="mostrarCatalogo()">Explorar colección</button>
+            </div>
+
+            <h2 class="titulo">Nuestras categorías</h2>
+
+            <div class="categorias">
+                <div class="categoria" onclick="filtrarCategoria('Zapatos')">
+                    <h3>Zapatos</h3>
+                </div>
+
+                <div class="categoria" onclick="filtrarCategoria('Vestidos')">
+                    <h3>Vestidos</h3>
+                </div>
+
+                <div class="categoria" onclick="filtrarCategoria('Sacos')">
+                    <h3>Sacos</h3>
+                </div>
+
+                <div class="categoria" onclick="filtrarCategoria('Deportivos')">
+                    <h3>Deportivos</h3>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CATÁLOGO -->
+        <section id="catalogo" class="pagina hidden">
+
+            <h2 class="titulo">Nuestro catálogo</h2>
+
+            <div class="filtros">
+                <button onclick="filtrarCategoria('Todos')">Todos</button>
+                <button onclick="filtrarCategoria('Zapatos')">Zapatos</button>
+                <button onclick="filtrarCategoria('Vestidos')">Vestidos</button>
+                <button onclick="filtrarCategoria('Sacos')">Sacos</button>
+                <button onclick="filtrarCategoria('Deportivos')">Deportivos</button>
+            </div>
+
+            <div id="productos" class="productos"></div>
+
+        </section>
+
+        <!-- CARRITO -->
+        <section id="carrito" class="pagina hidden">
+
+            <h2 class="titulo">Mi carrito</h2>
+
+            <div id="listaCarrito"></div>
+
+            <h2 id="total"></h2>
+
+            <button onclick="vaciarCarrito()">Vaciar carrito</button>
+            <button onclick="mostrarCatalogo()">Seguir comprando</button>
+
+        </section>
+
+        <footer>
+            <h2>CHAKA</h2>
+            <p>Tu estilo, tus reglas.</p>
+            <p>© 2026 CHAKA. Todos los derechos reservados.</p>
+        </footer>
+
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
